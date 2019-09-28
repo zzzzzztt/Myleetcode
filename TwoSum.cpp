@@ -17,11 +17,13 @@ vector<int> twoSum(vector<int> &nums, int target)
 		int othervalue = target-nums[i];
 		if (indexMap.find(othervalue)!=indexMap.end())
 		{
+			if(i==indexMap[othervalue])continue;
 			res.push_back(i);
 			res.push_back(indexMap[othervalue]);
-			return res;
+			break;
 		}
 	}
+	return res;
 };
 
 int main()
@@ -32,3 +34,4 @@ int main()
 	for (auto i: res)
 		printf("%d", i);
 };
+
